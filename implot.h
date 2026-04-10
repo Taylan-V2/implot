@@ -127,10 +127,24 @@ enum ImAxis_ {
     ImAxis_X1 = 0, // enabled by default
     ImAxis_X2,     // disabled by default
     ImAxis_X3,     // disabled by default
+    ImAxis_X4,     // disabled by default (extended)
+    ImAxis_X5,     // disabled by default (extended)
+    ImAxis_X6,     // disabled by default (extended)
+    ImAxis_X7,     // disabled by default (extended)
+    ImAxis_X8,     // disabled by default (extended)
+    ImAxis_X9,     // disabled by default (extended)
+    ImAxis_X10,    // disabled by default (extended)
     // vertical axes
     ImAxis_Y1,     // enabled by default
     ImAxis_Y2,     // disabled by default
     ImAxis_Y3,     // disabled by default
+    ImAxis_Y4,     // disabled by default (extended)
+    ImAxis_Y5,     // disabled by default (extended)
+    ImAxis_Y6,     // disabled by default (extended)
+    ImAxis_Y7,     // disabled by default (extended)
+    ImAxis_Y8,     // disabled by default (extended)
+    ImAxis_Y9,     // disabled by default (extended)
+    ImAxis_Y10,    // disabled by default (extended)
     // bookkeeping
     ImAxis_COUNT
 };
