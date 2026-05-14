@@ -1606,8 +1606,9 @@ void ShowPlotContextMenu(ImPlotPlot& plot) {
         if (ImGui::MenuItem("Title",nullptr,plot.HasTitle()))
             ImFlipFlag(plot.Flags, ImPlotFlags_NoTitle);
         EndDisabledControls(plot.TitleOffset == -1);
-        if (ImGui::MenuItem("Mouse Position",nullptr,!ImHasFlag(plot.Flags, ImPlotFlags_NoMouseText)))
-            ImFlipFlag(plot.Flags, ImPlotFlags_NoMouseText);
+        BeginDisabledControls(true);
+        ImGui::MenuItem("Mouse Position",nullptr,false);
+        EndDisabledControls(true);
         if (ImGui::MenuItem("Crosshairs",nullptr,ImHasFlag(plot.Flags, ImPlotFlags_Crosshairs)))
             ImFlipFlag(plot.Flags, ImPlotFlags_Crosshairs);
         ImGui::EndMenu();
