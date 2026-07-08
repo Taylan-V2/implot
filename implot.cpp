@@ -1920,10 +1920,17 @@ bool UpdateInput(ImPlotPlot& plot) {
         ImPlotAxis& xax = plot.XAxis(i);
         if (xax.Enabled) {
             ImGui::KeepAliveID(xax.ID);
-            x_click[i]  = ImGui::ButtonBehavior(xax.HoverRect,xax.ID,&xax.Hovered,&xax.Held,axis_button_flags);
-            if (x_click[i] && IO.MouseDoubleClicked[gp.InputMap.Fit])
-                plot.FitThisFrame = xax.FitThisFrame = true;
-            xax.Held  = xax.Held && can_pan;
+            const bool axis_inputs = !ImHasFlag(xax.Flags, ImPlotAxisFlags_NoInputs);
+            if (axis_inputs) {
+                x_click[i]  = ImGui::ButtonBehavior(xax.HoverRect,xax.ID,&xax.Hovered,&xax.Held,axis_button_flags);
+                if (x_click[i] && IO.MouseDoubleClicked[gp.InputMap.Fit])
+                    plot.FitThisFrame = xax.FitThisFrame = true;
+                xax.Held  = xax.Held && can_pan;
+            }
+            else {
+                xax.Hovered = false;
+                xax.Held = false;
+            }
             x_hov[i]  = xax.Hovered || plot.Hovered;
             x_held[i] = xax.Held    || plot.Held;
         }
@@ -1933,10 +1940,17 @@ bool UpdateInput(ImPlotPlot& plot) {
         ImPlotAxis& yax = plot.YAxis(i);
         if (yax.Enabled) {
             ImGui::KeepAliveID(yax.ID);
-            y_click[i]  = ImGui::ButtonBehavior(yax.HoverRect,yax.ID,&yax.Hovered,&yax.Held,axis_button_flags);
-            if (y_click[i] && IO.MouseDoubleClicked[gp.InputMap.Fit])
-                plot.FitThisFrame = yax.FitThisFrame = true;
-            yax.Held  = yax.Held && can_pan;
+            const bool axis_inputs = !ImHasFlag(yax.Flags, ImPlotAxisFlags_NoInputs);
+            if (axis_inputs) {
+                y_click[i]  = ImGui::ButtonBehavior(yax.HoverRect,yax.ID,&yax.Hovered,&yax.Held,axis_button_flags);
+                if (y_click[i] && IO.MouseDoubleClicked[gp.InputMap.Fit])
+                    plot.FitThisFrame = yax.FitThisFrame = true;
+                yax.Held  = yax.Held && can_pan;
+            }
+            else {
+                yax.Hovered = false;
+                yax.Held = false;
+            }
             y_hov[i]  = yax.Hovered || plot.Hovered;
             y_held[i] = yax.Held    || plot.Held;
         }

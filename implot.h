@@ -196,6 +196,7 @@ enum ImPlotAxisFlags_ {
     ImPlotAxisFlags_NoMenus       = 1 << 5,  // the user will not be able to open context menus with right-click
     ImPlotAxisFlags_NoSideSwitch  = 1 << 6,  // the user will not be able to switch the axis side by dragging it
     ImPlotAxisFlags_NoHighlight   = 1 << 7,  // the axis will not have its background highlighted when hovered or held
+    ImPlotAxisFlags_NoInputs      = 1 << 16, // the user will not be able to hover, click, or drag the axis directly
     ImPlotAxisFlags_Opposite      = 1 << 8,  // axis ticks and labels will be rendered on the conventionally opposite side (i.e, right or top)
     ImPlotAxisFlags_Foreground    = 1 << 9,  // grid lines will be displayed in the foreground (i.e. on top of data) instead of the background
     ImPlotAxisFlags_Invert        = 1 << 10, // the axis will be inverted
